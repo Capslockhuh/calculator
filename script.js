@@ -7,8 +7,10 @@ digits.forEach((digit) => {
     digit.addEventListener("click", () => {
         if (operator === "") {
             firstNum += digit.textContent;
+            display.textContent = firstNum;
         } else {
             secondNum += digit.textContent;
+            display.textContent = secondNum
         }
     })
 })
@@ -22,11 +24,13 @@ operators.forEach((symbol) => {
 
 const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener("click", () => {
-    operate(Number(firstNum), operator, Number(secondNum));
+    display.textContent = operate(Number(firstNum), operator, Number(secondNum));
     firstNum = "";
     secondNum = "";
     operator = "";
 });
+
+const display = document.querySelector(".display");
 
 function add(a, b) {
     return a + b;
@@ -53,16 +57,16 @@ function operate(firstNum, operator, secondNum) {
     switch (operator) {
         case "+":
             console.log(add(firstNum, secondNum));
-            break;
+            return add(firstNum, secondNum);
         case "-":
             console.log(subtract(firstNum, secondNum));
-            break;
+            return subtract(firstNum, secondNum);
         case "x":
             console.log(multiply(firstNum, secondNum));
-            break;
+            return multiply(firstNum, secondNum);
         case "÷":
             console.log(divide(firstNum, secondNum));
-            break;
+            return divide(firstNum, secondNum);
         default:
             break;
     }
