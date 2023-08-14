@@ -23,3 +23,21 @@ function divide(a, b) {
     }
 }
 
+function operate(firstNum, operator, secondNum) {
+    switch (operator) {
+        case "+":
+            add(firstNum, secondNum);
+            break;
+        case "-":
+            subtract(firstNum, secondNum);
+            break;
+        case "x":
+            multiply(firstNum, secondNum);
+            break;
+        case "÷":
+            divide(firstNum, secondNum);
+            break;
+        default:
+            break;
+    }
+}
