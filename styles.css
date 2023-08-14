@@ -1,0 +1,32 @@
+#calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 300px;
+    height: 600px;
+    border: 2px solid black;
+}
+
+.display {
+    margin: 10px;
+    text-align: end;
+    height: 80px;
+}
+
+.buttons-grid {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.btn {
+    height: 100px;
+    width: 75px;
+}
+
+#equals {
+    height: 100px;
+    width: 150px;
+}
