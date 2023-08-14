@@ -1,14 +1,14 @@
-let firstNum;
+let firstNum = "";
 let operator = "";
-let secondNum;
+let secondNum = "";
 
 const digits = document.querySelectorAll(".digit");
 digits.forEach((digit) => {
     digit.addEventListener("click", () => {
         if (operator === "") {
-            firstNum = Number(digit.textContent);
+            firstNum += digit.textContent;
         } else {
-            secondNum = Number(digit.textContent);
+            secondNum += digit.textContent;
         }
     })
 })
@@ -22,9 +22,9 @@ operators.forEach((symbol) => {
 
 const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener("click", () => {
-    operate(firstNum, operator, secondNum);
-    firstNum = null;
-    secondNum = null;
+    operate(Number(firstNum), operator, Number(secondNum));
+    firstNum = "";
+    secondNum = "";
     operator = "";
 });
 
