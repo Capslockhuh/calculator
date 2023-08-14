@@ -1,6 +1,32 @@
 let firstNum;
-let operator;
+let operator = "";
 let secondNum;
+
+const digits = document.querySelectorAll(".digit");
+digits.forEach((digit) => {
+    digit.addEventListener("click", () => {
+        if (operator === "") {
+            firstNum = Number(digit.textContent);
+        } else {
+            secondNum = Number(digit.textContent);
+        }
+    })
+})
+
+const operators = document.querySelectorAll(".operator");
+operators.forEach((symbol) => {
+    symbol.addEventListener("click", () => {
+        operator = symbol.textContent;
+    })
+})
+
+const equalsBtn = document.querySelector("#equals");
+equalsBtn.addEventListener("click", () => {
+    operate(firstNum, operator, secondNum);
+    firstNum = null;
+    secondNum = null;
+    operator = "";
+});
 
 function add(a, b) {
     return a + b;
@@ -26,16 +52,16 @@ function divide(a, b) {
 function operate(firstNum, operator, secondNum) {
     switch (operator) {
         case "+":
-            add(firstNum, secondNum);
+            console.log(add(firstNum, secondNum));
             break;
         case "-":
-            subtract(firstNum, secondNum);
+            console.log(subtract(firstNum, secondNum));
             break;
         case "x":
-            multiply(firstNum, secondNum);
+            console.log(multiply(firstNum, secondNum));
             break;
         case "÷":
-            divide(firstNum, secondNum);
+            console.log(divide(firstNum, secondNum));
             break;
         default:
             break;
