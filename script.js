@@ -18,7 +18,14 @@ digits.forEach((digit) => {
 const operators = document.querySelectorAll(".operator");
 operators.forEach((symbol) => {
     symbol.addEventListener("click", () => {
-        operator = symbol.textContent;
+        if (operator === "" || operator === null) {
+            operator = symbol.textContent;
+        } else {
+            firstNum = operate(Number(firstNum), operator, Number(secondNum));
+            secondNum = "";
+            display.textContent = operate(Number(firstNum), operator, Number(secondNum));
+            operator = symbol.textContent;
+        }
     })
 })
 
