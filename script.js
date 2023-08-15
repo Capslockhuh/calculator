@@ -33,6 +33,13 @@ const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener("click", () => {
     if ((operator === "x" && secondNum === "") || (operator === "÷" && secondNum === "")) {
         display.textContent = firstNum; // Avoid showing 0 when clicking = before entering a second number in multiplication or division  
+    } else if (operator === "÷" && secondNum === "0") {
+        // Avoid bugs with showing the division alert
+        alert("You can\'t divide by 0!");
+        display.textContent = 0;
+        firstNum = "";
+        secondNum = "";
+        operator = "";
     } else {
         display.textContent = operate(Number(firstNum), operator, Number(secondNum));
         firstNum = "";
@@ -56,12 +63,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
-        alert("You can\'t divide by 0!");
-        return 0; 
-    } else {
-        return a / b;
-    }
+    return a / b;
 }
 
 function operate(firstNum, operator, secondNum) {
