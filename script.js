@@ -22,8 +22,8 @@ operators.forEach((symbol) => {
             operator = symbol.textContent;
         } else {
             firstNum = operate(Number(firstNum), operator, Number(secondNum));
+            display.textContent = firstNum;
             secondNum = "";
-            display.textContent = operate(Number(firstNum), operator, Number(secondNum));
             operator = symbol.textContent;
         }
     })
@@ -31,10 +31,14 @@ operators.forEach((symbol) => {
 
 const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener("click", () => {
-    display.textContent = operate(Number(firstNum), operator, Number(secondNum));
-    firstNum = "";
-    secondNum = "";
-    operator = "";
+    if ((operator === "x" && secondNum === "") || (operator === "÷" && secondNum === "")) {
+        display.textContent = firstNum; // Avoid showing 0 when clicking = before entering a second number in multiplication or division  
+    } else {
+        display.textContent = operate(Number(firstNum), operator, Number(secondNum));
+        firstNum = "";
+        secondNum = "";
+        operator = "";
+    }
 });
 
 const display = document.querySelector(".display");
@@ -43,7 +47,7 @@ function add(a, b) {
     return a + b;
 }
 
-function subtract (a, b) {
+function subtract(a, b) {
     return a - b;
 }
 
@@ -54,7 +58,7 @@ function multiply(a, b) {
 function divide(a, b) {
     if (b === 0) {
         alert("You can\'t divide by 0!");
-        return; 
+        return 0; 
     } else {
         return a / b;
     }
