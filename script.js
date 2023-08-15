@@ -40,7 +40,7 @@ equalsBtn.addEventListener("click", () => {
     } else {
         let result = operate(Number(firstNum), operator, Number(secondNum));
         if (!(Number.isInteger(result))) {
-            result = Math.round(result * 100) / 100;
+            result = Math.round((result + Number.EPSILON) * 100) / 100
         }
         display.textContent = result;
         firstNum = "";
