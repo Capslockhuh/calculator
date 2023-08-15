@@ -36,10 +36,7 @@ equalsBtn.addEventListener("click", () => {
     } else if (operator === "÷" && secondNum === "0") {
         // Avoid bugs with showing the division alert
         alert("You can\'t divide by 0!");
-        display.textContent = 0;
-        firstNum = "";
-        secondNum = "";
-        operator = "";
+        clear();
     } else {
         display.textContent = operate(Number(firstNum), operator, Number(secondNum));
         firstNum = "";
@@ -49,6 +46,16 @@ equalsBtn.addEventListener("click", () => {
 });
 
 const display = document.querySelector(".display");
+
+const clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", clear);
+
+function clear() {
+    display.textContent = 0;
+    firstNum = "";
+    secondNum = "";
+    operator = "";
+}
 
 function add(a, b) {
     return a + b;
