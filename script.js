@@ -38,7 +38,11 @@ equalsBtn.addEventListener("click", () => {
         alert("You can\'t divide by 0!");
         clear();
     } else {
-        display.textContent = operate(Number(firstNum), operator, Number(secondNum));
+        let result = operate(Number(firstNum), operator, Number(secondNum));
+        if (!(Number.isInteger(result))) {
+            result = Math.round(result * 100) / 100;
+        }
+        display.textContent = result;
         firstNum = "";
         secondNum = "";
         operator = "";
