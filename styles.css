@@ -1,3 +1,7 @@
+html, body {
+    background-color: #FFCC8F;
+}
+
 #calculator-container {
     display: flex;
     justify-content: center;
@@ -5,28 +9,80 @@
 }
 
 .calculator {
-    width: 300px;
-    height: 600px;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 462px;
     border: 2px solid black;
+    border-radius: 5px;
+    background-color: #EDEDEDED;
+    margin-top: 7.5%;
 }
 
 .display {
     margin: 10px;
     text-align: end;
     height: 80px;
+    font-family: 'Roboto Mono' 'Courier New', Courier, monospace;
+    font-size: 24px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 .buttons-grid {
     display: flex;
     flex-flow: row wrap;
+    max-height: 300px;
+    gap: 4px;
+    margin: 0px 4px;
+}
+
+.row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+#top {
+    margin-bottom: 0px;
+}
+
+#middle-row {
+    display: flex;
+    gap: 4px;
+}
+
+#operators-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#digits {
+    display: flex;
+    flex-direction: column;
 }
 
 .btn {
-    height: 100px;
+    padding: 0px;
     width: 75px;
+    height: 60px;
+    background-color: #CCCCCC;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: Roboto Mono 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
+.bottom {
+    margin: 0px;
+}
+
+.action {
+    background-color: #EF890E;
 }
 
 #equals {
-    height: 100px;
-    width: 150px;
+    width: 154px;
 }
