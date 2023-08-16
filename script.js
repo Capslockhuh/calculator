@@ -61,6 +61,17 @@ function clear() {
     operator = "";
 }
 
+const deleteBtn = document.querySelector("#delete");
+deleteBtn.addEventListener("click", () => {
+    if (Boolean(firstNum) && !(Boolean(operator))) {
+        firstNum = firstNum.slice(0, -1);
+        display.textContent = firstNum;
+    } else if (Boolean(firstNum) && Boolean(operator) && Boolean(secondNum)) {
+        secondNum = secondNum.slice(0, -1);
+        display.textContent = secondNum;
+    }
+})
+
 function add(a, b) {
     return a + b;
 }
