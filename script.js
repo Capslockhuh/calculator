@@ -50,7 +50,6 @@ equalsBtn.addEventListener("click", () => {
 });
 
 const display = document.querySelector(".display");
-
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", clear);
 
@@ -68,6 +67,18 @@ deleteBtn.addEventListener("click", () => {
         display.textContent = firstNum;
     } else if (Boolean(firstNum) && Boolean(operator) && Boolean(secondNum)) {
         secondNum = secondNum.slice(0, -1);
+        display.textContent = secondNum;
+    }
+})
+
+const signBtn = document.querySelector("#sign-toggle");
+// Change a number's sign (+/-)
+signBtn.addEventListener("click", () => {
+    if (Boolean(firstNum) && !(Boolean(operator))) {
+        firstNum *= -1;
+        display.textContent = firstNum;
+    } else if (Boolean(firstNum) && Boolean(operator) && Boolean(secondNum)) {
+        secondNum *= -1
         display.textContent = secondNum;
     }
 })
