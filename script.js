@@ -102,16 +102,12 @@ function divide(a, b) {
 function operate(firstNum, operator, secondNum) {
     switch (operator) {
         case "+":
-            console.log(add(firstNum, secondNum));
             return add(firstNum, secondNum);
         case "-":
-            console.log(subtract(firstNum, secondNum));
             return subtract(firstNum, secondNum);
         case "x":
-            console.log(multiply(firstNum, secondNum));
             return multiply(firstNum, secondNum);
         case "÷":
-            console.log(divide(firstNum, secondNum));
             return divide(firstNum, secondNum);
         default:
             break;
